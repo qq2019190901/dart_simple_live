@@ -149,17 +149,5 @@ jobs:
           path: |
             simple_live_app/build/dist/*/*.msix
             simple_live_app/build/dist/*/*.zip
-
-      # 读取版本信息
-      - name: Read version
-        id: version
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: assets/app_version.json
-      - name: Echo version
-        run: echo "${{ fromJson(steps.version.outputs.content).version }}"
-      - name: Echo version content
-        run: echo "${{ fromJson(steps.version.outputs.content).version_desc }}"
-
       #完成
       - run: echo "🍏 Windows job's status is ${{ job.status }}."
